@@ -16,6 +16,14 @@ export class AppComponent extends React.Component {
   }
 
   validate() {
+    if (this.state.username == '') {
+      return false;
+    }
+    if (this.state.password == '') {
+      return false;
+    }
+
+    return true;
   }
 
   doLogin() {

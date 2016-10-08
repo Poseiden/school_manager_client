@@ -88,7 +88,7 @@ describe('MainComponent', () => {
     });
   });
 
-  describe.only('doLogin', () => {
+  describe('doLogin', () => {
     it('should call function validate with username and password do validation', () => {
 
       sinon.spy(Main.prototype, 'validate');
@@ -136,7 +136,36 @@ describe('MainComponent', () => {
   });
 
   describe('validate', () => {
+    it('should return false when username is empty', () => {
+      MainComponent.find('.username-input').prop('onChange')({
+        target: {
+          value: ''
+        }
+      });
 
+      MainComponent.find('.password-input').prop('onChange')({
+        target: {
+          value: '123'
+        }
+      });
+
+      assert.equal(MainComponent.instance().validate(), false);
+    });
+
+    it('should return false when password is empty', () => {
+      MainComponent.find('.username-input').prop('onChange')({
+        target: {
+          value: '123'
+        }
+      });
+      MainComponent.find('.password-input').prop('onChange')({
+        target: {
+          value: ''
+        }
+      });
+
+      assert.equal(MainComponent.instance().validate(), false);
+    });
   });
 
 });
