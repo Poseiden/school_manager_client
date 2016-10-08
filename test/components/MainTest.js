@@ -183,4 +183,18 @@ describe('MainComponent', () => {
     });
   });
 
+  it('should return false when username not equals \'admin\'', () => {
+    MainComponent.find('.username-input').prop('onChange')({
+      target: {
+        value: 'ad'
+      }
+    });
+    MainComponent.find('.password-input').prop('onChange')({
+      target: {
+        value: 'admin'
+      }
+    });
+
+    assert.equal(MainComponent.instance().validate(), false);
+  });
 });
