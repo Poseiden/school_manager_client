@@ -7,6 +7,7 @@ export class AppComponent extends React.Component {
     super();
 
     this.doLogin = this.doLogin.bind(this);
+    this.validate = this.validate.bind(this);
 
     this.state = {
       username: '',
@@ -14,8 +15,12 @@ export class AppComponent extends React.Component {
     };
   }
 
-  doLogin() {
+  validate() {
 
+  }
+
+  doLogin() {
+    this.validate();
   }
 
   render() {

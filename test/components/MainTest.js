@@ -6,6 +6,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { assert } from 'chai';
+import sinon from 'sinon';
 import Main from 'components/Main';
 
 describe('MainComponent', () => {
@@ -87,20 +88,41 @@ describe('MainComponent', () => {
     });
   });
 
-  describe('doLogin', () => {
+  describe.only('doLogin', () => {
     it('should call function validate with username and password do validation', () => {
-      // const validate = sinon.stub().returns(true);
 
-      // console.log(validate);
+      sinon.spy(Main.prototype, 'validate');
+
+      MainComponent = mount(<Main />);
+
+      const submit = MainComponent.find('.submit');
+
+      submit.prop('onClick')();
+
+      assert.equal(Main.prototype.validate.calledOnce, true);
+
+      Main.prototype.validate.restore();
     });
 
-    it('should redirect to home page when validate is true', () => {
-
-    });
-
-    it('should alert error message when validate is false', () => {
-
-    });
+    //   it('should redirect to home page when validate is true', () => {
+    //     const validateTrue = sinon.stub('validate').returns(true);
+    //
+    //     const submit = MainComponent.find('.submit');
+    //
+    //     submit.click();
+    //
+    //     assert(window.url, '/home');
+    //   });
+    //
+    //   it('should alert error message when validate is false', () => {
+    //     const validateFalse = sinon.stub('validate').returns(false);
+    //
+    //     const submit = MainComponent.find('.submit');
+    //
+    //     submit.click();
+    //
+    //     assert(window.alert, 'The username or password is not correct');
+    //   });
   });
 
   describe('validate', () => {
