@@ -6,6 +6,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { assert } from 'chai';
+import sinon from 'sinon';
 import MainTwo from 'components/MainTwo';
 
 describe('MainTwoComponent', () => {
@@ -78,5 +79,132 @@ describe('MainTwoComponent', () => {
 
       assert.equal(MainTwoComponent.state().password, 'password');
     });
+  });
+
+  describe('doLogin', () => {
+    it('should call validate with username and password when login', () => {
+      sinon.spy(MainTwo.prototype, 'validate');
+
+      MainTwoComponent = mount(<MainTwo />);
+
+      MainTwoComponent.find('.submit').prop('onClick')();
+
+      assert.equal(MainTwo.prototype.validate.calledOnce, true);
+
+      MainTwo.prototype.validate.restore();
+    });
+
+    it('should alert \'login success\' when login success', () => {
+      sinon.stub(MainTwo.prototype, 'validate').returns(true);
+
+      MainTwoComponent = mount(<MainTwo />);
+
+      sinon.spy(window, 'alert');
+
+      MainTwoComponent.find('.submit').prop('onClick')();
+
+      assert.equal(window.alert.calledWith('login success'), true);
+
+      window.alert.restore();
+
+      MainTwo.prototype.validate.restore();
+    });
+
+    it('should alert \'username or password not correct\'', () => {
+      sinon.stub(MainTwo.prototype, 'validate').returns(false);
+
+      MainTwoComponent = mount(<MainTwo />);
+
+      sinon.spy(window, 'alert');
+
+      MainTwoComponent.find('.submit').prop('onClick')();
+
+      assert.equal(window.alert.calledWith('username or password not correct'), true);
+
+      window.alert.restore();
+
+      MainTwo.prototype.validate.restore();
+    });
+  });
+
+  describe('validate', () => {
+    it('should return false when username is empty', () => {
+      MainTwoComponent.find('.username-input').prop('onChange')({
+        target: {
+          value: ''
+        }
+      });
+
+      MainTwoComponent.find('.password-input').prop('onChange')({
+        target: {
+          value: 'password'
+        }
+      });
+
+      assert.equal(MainTwoComponent.instance().validate(), false);
+    });
+
+    it('should return false when password is empty', () => {
+      MainTwoComponent.find('.username-input').prop('onChange')({
+        target: {
+          value: 'username'
+        }
+      });
+      MainTwoComponent.find('.password-input').prop('onChange')({
+        target: {
+          value: ''
+        }
+      });
+
+      assert.equal(MainTwoComponent.instance().validate(), false);
+    });
+
+    it('should return true when username and password both equal to admin', () => {
+      MainTwoComponent.find('.username-input').prop('onChange')({
+        target: {
+          value: 'admin'
+        }
+      });
+
+      MainTwoComponent.find('.password-input').prop('onChange')({
+        target: {
+          value: 'admin'
+        }
+      });
+
+      assert.equal(MainTwoComponent.instance().validate(), true);
+    });
+
+    it('should return false when username not equal to \'admin\'', () => {
+      MainTwoComponent.find('.username-input').prop('onChange')({
+        target: {
+          value: 'username'
+        }
+      });
+
+      MainTwoComponent.find('.password-input').prop('onChange')({
+        target: {
+          value: 'admin'
+        }
+      });
+
+      assert.equal(MainTwoComponent.instance().validate(), false);
+    });
+
+    it('should return false when password not equal to \'admin\'', () => {
+      MainTwoComponent.find('.username-input').prop('onChange')({
+        target: {
+          value: 'admin'
+        }
+      });
+
+      MainTwoComponent.find('.password-input').prop('onChange')({
+        target: {
+          value: 'password'
+        }
+      });
+
+      assert.equal(MainTwoComponent.instance().validate(), false);
+    })
   });
 });

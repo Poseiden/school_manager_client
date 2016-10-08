@@ -5,6 +5,7 @@ export class AppComponentTwo extends React.Component {
     super();
 
     this.doLogin = this.doLogin.bind(this);
+    this.validate = this.validate.bind(this);
 
     this.state = {
       username: '',
@@ -12,8 +13,27 @@ export class AppComponentTwo extends React.Component {
     };
   }
 
-  doLogin() {
+  validate() {
+    if (this.state.username == '') {
+      return false;
+    }
+    if (this.state.password == '') {
+      return false;
+    }
 
+    if (this.state.username == 'admin' && this.state.password == 'admin') {
+      return true;
+    }
+    return false;
+  }
+  doLogin() {
+    const flag = this.validate();
+
+    if (flag) {
+      window.alert('login success');
+    } else {
+      window.alert('username or password not correct');
+    }
   }
 
   render() {
