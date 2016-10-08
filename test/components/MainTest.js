@@ -104,25 +104,35 @@ describe('MainComponent', () => {
       Main.prototype.validate.restore();
     });
 
-    //   it('should redirect to home page when validate is true', () => {
-    //     const validateTrue = sinon.stub('validate').returns(true);
-    //
-    //     const submit = MainComponent.find('.submit');
-    //
-    //     submit.click();
-    //
-    //     assert(window.url, '/home');
-    //   });
-    //
-    //   it('should alert error message when validate is false', () => {
-    //     const validateFalse = sinon.stub('validate').returns(false);
-    //
-    //     const submit = MainComponent.find('.submit');
-    //
-    //     submit.click();
-    //
-    //     assert(window.alert, 'The username or password is not correct');
-    //   });
+    it('should alert \'login success\' when validate is true', () => {
+      sinon.stub(Main.prototype, 'validate').returns(true);
+
+      MainComponent = mount(<Main />);
+      const submit = MainComponent.find('.submit');
+      sinon.spy(window, 'alert');
+
+      submit.prop('onClick')();
+
+      assert.equal(window.alert.calledWith('login success'), true);
+
+      Main.prototype.validate.restore();
+      window.alert.restore();
+    });
+
+    it('should alert error message when validate is false', () => {
+      sinon.stub(Main.prototype, 'validate').returns(false);
+
+      MainComponent = mount(<Main />);
+      const submit = MainComponent.find('.submit');
+      sinon.spy(window, 'alert');
+
+      submit.prop('onClick')();
+
+      assert.equal(window.alert.calledWith('username or password not correct.'), true);
+
+      Main.prototype.validate.restore();
+      window.alert.restore();
+    });
   });
 
   describe('validate', () => {

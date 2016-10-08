@@ -16,11 +16,15 @@ export class AppComponent extends React.Component {
   }
 
   validate() {
-
   }
 
   doLogin() {
-    this.validate();
+    const flag = this.validate();
+    if (flag) {
+      window.alert('login success');
+    } else {
+      window.alert('username or password not correct.');
+    }
   }
 
   render() {
