@@ -166,6 +166,21 @@ describe('MainComponent', () => {
 
       assert.equal(MainComponent.instance().validate(), false);
     });
+
+    it('should return true when username and password equals \'admin\'.', () => {
+      MainComponent.find('.username-input').prop('onChange')({
+        target: {
+          value: 'admin'
+        }
+      });
+      MainComponent.find('.password-input').prop('onChange')({
+        target: {
+          value: 'admin'
+        }
+      });
+
+      assert.equal(MainComponent.instance().validate(), true);
+    });
   });
 
 });

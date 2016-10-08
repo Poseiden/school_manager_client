@@ -22,8 +22,10 @@ export class AppComponent extends React.Component {
     if (this.state.password == '') {
       return false;
     }
-
-    return true;
+    if (this.state.username == 'admin' && this.state.password == 'admin') {
+      return true;
+    }
+    return false;
   }
 
   doLogin() {
