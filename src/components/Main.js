@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class AppComponent extends React.Component {
+class Main extends React.Component {
 
   constructor() {
 
@@ -58,7 +58,7 @@ export class AppComponent extends React.Component {
   }
 }
 
-AppComponent.defaultProps = {
+Main.defaultProps = {
 };
 
-export default AppComponent;
+export default Main;
