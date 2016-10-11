@@ -27,6 +27,12 @@ describe('QueryPageComponent', () => {
    
       assert.equal(table.length, 1);
     });
+
+    it('should render a pagination bar', () => {
+      const pagination = QueryPageComponent.find('Pagination');
+
+      assert.equal(pagination.length, 1);
+    })
   });
 
 });
