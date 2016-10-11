@@ -6,7 +6,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { assert } from 'chai';
-import ConditionBar from 'components/ConditionBar';
 import QueryPage from 'components/QueryPage';
 
 describe('QueryPageComponent', () => {
@@ -21,6 +20,13 @@ describe('QueryPageComponent', () => {
       const conditionBar = QueryPageComponent.find('ConditionBar');
 
       assert.equal(conditionBar.length, 1);
-    })
-  })
+    });
+
+    it('should render a table', () => {
+      const table = QueryPageComponent.find('Table');
+   
+      assert.equal(table.length, 1);
+    });
+  });
+
 });

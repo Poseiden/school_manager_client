@@ -1,5 +1,6 @@
 import React from 'react';
 import ConditionBar from './ConditionBar';
+import Table from './Table';
 
 class QueryPage extends React.Component {
 
@@ -7,6 +8,7 @@ class QueryPage extends React.Component {
     return (
       <div>
         <ConditionBar className='condition-bar'/>
+        <Table className=".table"/>
       </div>
     )
   }
