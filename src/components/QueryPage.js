@@ -4,7 +4,14 @@ import Table from './Table';
 import Pagination from './Pagination';
 
 class QueryPage extends React.Component {
+  constructor() {
+    super();
 
+    this.state = {
+      resultSet: ''
+    }
+  }
+  
   render() {
     return (
       <div>

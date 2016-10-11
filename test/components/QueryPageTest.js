@@ -32,6 +32,10 @@ describe('QueryPageComponent', () => {
       const pagination = QueryPageComponent.find('Pagination');
 
       assert.equal(pagination.length, 1);
+    });
+
+    it('should has state for saving query result', () => {
+      assert.equal(QueryPageComponent.state().resultSet, '');
     })
   });
 
