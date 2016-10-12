@@ -18,5 +18,11 @@ describe('ConditionBarComponent', () => {
     it('should has name state for saving query condition.', () => {
       assert.equal(ConditionBarComponent.state().name, '');
     });
+    it('should has min age for saving query condition.', () => {
+      assert.equal(ConditionBarComponent.state().minAge, '');
+    });
+    it('should has max age for saving query condition.', () => {
+      assert.equal(ConditionBarComponent.state().maxAge, '');
+    });
   });
 });

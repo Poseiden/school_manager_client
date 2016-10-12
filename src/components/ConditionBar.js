@@ -5,7 +5,9 @@ class ConditionBar extends React.Component {
     super();
 
     this.state = {
-      name: ''
+      name: '',
+      minAge: '',
+      maxAge: ''
     }
   }
   render() {
