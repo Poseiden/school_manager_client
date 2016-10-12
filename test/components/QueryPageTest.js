@@ -43,6 +43,8 @@ describe('QueryPageComponent', () => {
      
       assert.equal(typeof conditionBar.props().resultSet, 'function');
     });
+
+    //TODO should test getResultSet method()
   });
 
 });
