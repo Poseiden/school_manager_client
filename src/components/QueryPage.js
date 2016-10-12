@@ -10,12 +10,18 @@ class QueryPage extends React.Component {
     this.state = {
       resultSet: ''
     }
+
+    this.getResultSet = this.getResultSet.bind(this);
+  }
+
+  getResultSet() {
+
   }
   
   render() {
     return (
       <div>
-        <ConditionBar className='condition-bar'/>
+        <ConditionBar className='condition-bar' resultSet={this.getResultSet}/>
         <Table className="table"/>
         <Pagination className="pagination"/>
       </div>

@@ -36,7 +36,13 @@ describe('QueryPageComponent', () => {
 
     it('should has state for saving query result', () => {
       assert.equal(QueryPageComponent.state().resultSet, '');
-    })
+    });
+
+    it('should has property result set on condition bar', () => {
+      const conditionBar = QueryPageComponent.find('ConditionBar');
+     
+      assert.equal(typeof conditionBar.props().resultSet, 'function');
+    });
   });
 
 });
