@@ -24,5 +24,8 @@ describe('ConditionBarComponent', () => {
     it('should has max age for saving query condition.', () => {
       assert.equal(ConditionBarComponent.state().maxAge, '');
     });
+    it('should has gender for saving query condition.', () => {
+      assert.equal(ConditionBarComponent.state().gender, '');
+    })
   });
 });
