@@ -12,7 +12,11 @@ class ConditionBar extends React.Component {
     }
   }
   render() {
-    return <div>Hello</div>
+    return (
+      <div>
+        <input type="text" className="name-input"/>
+      </div>
+    )
   }
 }
 

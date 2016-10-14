@@ -26,6 +26,9 @@ describe('ConditionBarComponent', () => {
     });
     it('should has gender for saving query condition.', () => {
       assert.equal(ConditionBarComponent.state().gender, '');
+    });
+    it('should render a text input for saving name query condition', () => {
+      assert.equal(ConditionBarComponent.find('.name-input').length, 1);
     })
   });
 });
