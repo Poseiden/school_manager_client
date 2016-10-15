@@ -29,6 +29,19 @@ describe('ConditionBarComponent', () => {
     });
     it('should render a text input for saving name query condition', () => {
       assert.equal(ConditionBarComponent.find('.name-input').length, 1);
+    });
+    it('should change state name when name input changed', () => {
+      const nameInput = ConditionBarComponent.find('.name-input');
+
+      assert.equal(ConditionBarComponent.state().name, '');
+
+      nameInput.prop('onChange')({
+        target: {
+          value: 'name'
+        }
+      });
+
+      assert.equal(ConditionBarComponent.state().name, 'name');
     })
   });
 });

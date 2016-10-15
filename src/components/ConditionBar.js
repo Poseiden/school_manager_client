@@ -14,7 +14,11 @@ class ConditionBar extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" className="name-input"/>
+        <input type="text" className="name-input" onChange={(event) => {
+          this.setState({
+            name : event.target.value
+          });
+        }}/>
       </div>
     )
   }
