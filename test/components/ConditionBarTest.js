@@ -48,6 +48,16 @@ describe('ConditionBarComponent', () => {
 
       assert.equal(maxAgeInput.length, 1);
     });
+    it('should change max age state when age age input changed.', () => {
+      assert.equal(ConditionBarComponent.state().maxAge, '');
+      
+      ConditionBarComponent.find('.maxAge-input').prop('onChange')({
+        target: {
+          value: '1'
+        }
+      });
+      assert.equal(ConditionBarComponent.state().maxAge, '1');
+    });
     it('should has min age input component', () => {
       const minAgeInput = ConditionBarComponent.find('.minAge-input');
       
