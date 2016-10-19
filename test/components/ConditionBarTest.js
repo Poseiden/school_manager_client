@@ -62,6 +62,17 @@ describe('ConditionBarComponent', () => {
       const minAgeInput = ConditionBarComponent.find('.minAge-input');
       
       assert.equal(minAgeInput.length, 1);
+    });
+    it('should change min age state when min age input changed.', () => {
+      assert.equal(ConditionBarComponent.state().minAge, '');
+      
+      ConditionBarComponent.find('.minAge-input').prop('onChange')({
+        target: {
+          value: '1'
+        }
+      });
+      
+      assert.equal(ConditionBarComponent.state().minAge, '1');
     })
   });
 });

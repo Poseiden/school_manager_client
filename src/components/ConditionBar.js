@@ -24,7 +24,11 @@ class ConditionBar extends React.Component {
             maxAge: event.target.value
           })
         }} />
-        <input type="text" className="minAge-input" />
+        <input type="text" className="minAge-input" onChange={(event) => {
+          this.setState({
+            minAge: event.target.value
+          })
+        }} />
       </div>
     )
   }
