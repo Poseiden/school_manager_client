@@ -42,6 +42,16 @@ describe('ConditionBarComponent', () => {
       });
 
       assert.equal(ConditionBarComponent.state().name, 'name');
+    });
+    it('should has max age input component', () => {
+      const maxAgeInput = ConditionBarComponent.find('.maxAge-input');
+
+      assert.equal(maxAgeInput.length, 1);
+    });
+    it('should has min age input component', () => {
+      const minAgeInput = ConditionBarComponent.find('.minAge-input');
+      
+      assert.equal(minAgeInput.length, 1);
     })
   });
 });
