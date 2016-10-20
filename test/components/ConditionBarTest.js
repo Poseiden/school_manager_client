@@ -73,6 +73,9 @@ describe('ConditionBarComponent', () => {
       });
       
       assert.equal(ConditionBarComponent.state().minAge, '1');
+    });
+    it('should has drop down list for gender selection.', () => {
+        assert.equal(ConditionBarComponent.find('.gender-input').length, 1);
     })
   });
 });
