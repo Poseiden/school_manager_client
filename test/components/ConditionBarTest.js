@@ -76,6 +76,9 @@ describe('ConditionBarComponent', () => {
     });
     it('should has drop down list for gender selection.', () => {
         assert.equal(ConditionBarComponent.find('.gender-input').length, 1);
+    });
+    it('should has two values in selection.', () => {
+        assert.equal(ConditionBarComponent.find('.gender-input').find('option').length, 2);
     })
   });
 });
