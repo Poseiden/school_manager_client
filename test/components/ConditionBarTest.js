@@ -79,6 +79,17 @@ describe('ConditionBarComponent', () => {
     });
     it('should has two values in selection.', () => {
         assert.equal(ConditionBarComponent.find('.gender-input').find('option').length, 2);
+    });
+    it.only('should change gender when gender changed.', () => {
+        assert.equal(ConditionBarComponent.state().gender, '');
+
+        ConditionBarComponent.find('.gender-input').prop('onChange')({
+            target: {
+                value: 'male'
+            }
+        });
+
+        assert.equal(ConditionBarComponent.state().gender, 'male');
     })
   });
 });
