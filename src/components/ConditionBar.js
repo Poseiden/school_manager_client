@@ -32,7 +32,7 @@ class ConditionBar extends React.Component {
             minAge: event.target.value
           })
         }} />
-        <br />t
+        <br />
         Gender: <select className="gender-input" onChange={(event) => {
             this.setState({
                 gender: event.target.value
@@ -42,6 +42,8 @@ class ConditionBar extends React.Component {
           <option value="male" >Male</option>
           <option value="female" >Female</option>
         </select>
+
+        <input type="button"   className="query-button" />
       </div>
     )
   }

@@ -93,6 +93,9 @@ describe('ConditionBarComponent', () => {
         });
 
         assert.equal(ConditionBarComponent.state().gender, 'male');
+    });
+    it('should has query button. ', () => {
+      assert.equal(ConditionBarComponent.find('.query-button').length, 1);
     })
   });
 });
