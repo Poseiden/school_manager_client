@@ -34,8 +34,9 @@ class ConditionBar extends React.Component {
                 gender: event.target.value
             })
         }}>
-          <option value="male" className="male-option">Male</option>
-          <option value="female" className="female-option">Female</option>
+          <option value="all" >all</option>
+          <option value="male" >Male</option>
+          <option value="female" >Female</option>
         </select>
       </div>
     )
