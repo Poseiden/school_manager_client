@@ -8,9 +8,10 @@ class ConditionBar extends React.Component {
       name: '',
       minAge: '',
       maxAge: '',
-      gender: ''
-    }
+      gender: 'all'
+    };
   }
+
   render() {
     return (
       <div>
@@ -31,7 +32,7 @@ class ConditionBar extends React.Component {
             minAge: event.target.value
           })
         }} />
-        <br />
+        <br />t
         Gender: <select className="gender-input" onChange={(event) => {
             this.setState({
                 gender: event.target.value

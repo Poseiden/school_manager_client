@@ -25,7 +25,7 @@ describe('ConditionBarComponent', () => {
       assert.equal(ConditionBarComponent.state().maxAge, '');
     });
     it('should has gender for saving query condition.', () => {
-      assert.equal(ConditionBarComponent.state().gender, '');
+      assert.equal(ConditionBarComponent.state().gender, 'all');
     });
     it('should render a text input for saving name query condition', () => {
       assert.equal(ConditionBarComponent.find('.name-input').length, 1);
@@ -80,8 +80,11 @@ describe('ConditionBarComponent', () => {
     it('should has two values in selection.', () => {
         assert.equal(ConditionBarComponent.find('.gender-input').find('option').length, 3);
     });
+    it('should has default value for gender.', () => {
+        assert.equal(ConditionBarComponent.state().gender, 'all');
+    });
     it('should change gender when gender changed.', () => {
-        assert.equal(ConditionBarComponent.state().gender, '');
+        assert.equal(ConditionBarComponent.state().gender, 'all');
 
         ConditionBarComponent.find('.gender-input').prop('onChange')({
             target: {
