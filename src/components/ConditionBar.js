@@ -14,22 +14,22 @@ class ConditionBar extends React.Component {
   render() {
     return (
       <div>
-        <input type="text" className="name-input" onChange={(event) => {
+        Name: <input type="text" className="name-input" onChange={(event) => {
           this.setState({
             name : event.target.value
           });
         }}/>
-        <input type="text" className="maxAge-input" onChange={(event) => {
+        MaxAge: <input type="text" className="maxAge-input" onChange={(event) => {
           this.setState({
             maxAge: event.target.value
           })
         }} />
-        <input type="text" className="minAge-input" onChange={(event) => {
+        MinAge: <input type="text" className="minAge-input" onChange={(event) => {
           this.setState({
             minAge: event.target.value
           })
         }} />
-        <select className="gender-input" onChange={(event) => {
+        Gender: <select className="gender-input" onChange={(event) => {
             this.setState({
                 gender: event.target.value
             })

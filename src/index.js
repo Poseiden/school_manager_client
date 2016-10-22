@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router';
 import Main from './components/Main';
 import MainTwo from './components/MainTwo';
+import QueryPage from './components/QueryPage';
 
 // Render the main component into the dom
 // ReactDOM.render(<MainTwo />, document.getElementById('app'));
@@ -16,6 +17,7 @@ const App = React.createClass({
         <ul>
           <li><Link to="/main">Main</Link></li>
           <li><Link to="/mainTwo">MainTwo</Link></li>
+          <li><Link to="/queryPage">QueryPage</Link></li>
         </ul>
         {this.props.children}
       </div>
@@ -35,6 +37,7 @@ ReactDOM.render((
       <IndexRoute component={Dashboard}/>
       <Route path="main" component={Main}/>
       <Route path="mainTwo" component={MainTwo}/>
+      <Route path="queryPage" component={QueryPage}/>
     </Route>
   </Router>
 ), document.getElementById('app'))
