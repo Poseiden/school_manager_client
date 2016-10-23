@@ -10,6 +10,12 @@ class ConditionBar extends React.Component {
       maxAge: '',
       gender: 'all'
     };
+
+    this.query = this.query.bind(this);
+  }
+
+  query() {
+
   }
 
   render() {
@@ -43,7 +49,7 @@ class ConditionBar extends React.Component {
           <option value="female" >Female</option>
         </select>
 
-        <input type="button"   className="query-button" />
+        <input type="button" className="query-button" />
       </div>
     )
   }

@@ -6,6 +6,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import ConditionBar from 'components/ConditionBar';
+import sinon from 'sinon';
 
 describe('ConditionBarComponent', () => {
   let ConditionBarComponent;
@@ -96,6 +97,17 @@ describe('ConditionBarComponent', () => {
     });
     it('should has query button. ', () => {
       assert.equal(ConditionBarComponent.find('.query-button').length, 1);
+    });
+    it.skip('should has called query method when click query button', () => {
+      sinon.spy(ConditionBar.proptype, 'query');
+
+      ConditionBarComponent = mount(<ConditionBarComponent />);
+
+      ConditionBarComponent.find('.query-button').prop('onClick')();
+
+      assert.equal(queryMethod.prototype.query.calledOnce, true);
+
+      ConditionBar.prototype.query.restore();
     })
   });
 });
