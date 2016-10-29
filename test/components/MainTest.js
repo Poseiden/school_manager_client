@@ -42,9 +42,15 @@ describe('MainComponent', () => {
     });
 
     it('should pass doLogin to Button as onClick event handler', () => {
-      const button = MainComponent.find('.submit');
+      sinon.spy(Main.prototype, 'doLogin');
 
-      assert.equal(button.prop('onClick').name, 'doLogin');
+      MainComponent = mount(<Main />);
+
+      MainComponent.find('.submit').prop('onClick')();
+
+      assert.equal(Main.prototype.doLogin.calledOnce, true);
+
+      Main.prototype.doLogin.restore();
     });
 
     it('should has state for save username', () => {

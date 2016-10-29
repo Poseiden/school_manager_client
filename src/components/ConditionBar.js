@@ -49,7 +49,7 @@ class ConditionBar extends React.Component {
           <option value="female" >Female</option>
         </select>
 
-        <input type="button" className="query-button" />
+        <input type="button" className="query-button" onClick={this.query} />
       </div>
     )
   }

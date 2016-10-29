@@ -98,14 +98,14 @@ describe('ConditionBarComponent', () => {
     it('should has query button. ', () => {
       assert.equal(ConditionBarComponent.find('.query-button').length, 1);
     });
-    it.skip('should has called query method when click query button', () => {
-      sinon.spy(ConditionBar.proptype, 'query');
+    it('should has called query method when click query button', () => {
+      sinon.spy(ConditionBar.prototype, 'query');
 
-      ConditionBarComponent = mount(<ConditionBarComponent />);
+      ConditionBarComponent = mount(<ConditionBar />);
 
       ConditionBarComponent.find('.query-button').prop('onClick')();
 
-      assert.equal(queryMethod.prototype.query.calledOnce, true);
+      assert.equal(ConditionBar.prototype.query.calledOnce, true);
 
       ConditionBar.prototype.query.restore();
     })

@@ -49,7 +49,6 @@
     "karma-es6-shim": "^1.0.0",
     "karma-mocha": "^1.0.0",
     "karma-mocha-reporter": "^2.0.0",
-    "karma-phantomjs-launcher": "^1.0.2",
     "karma-sinon": "^1.0.5",
     "karma-sourcemap-loader": "^0.3.5",
     "karma-webpack": "^1.7.0",
