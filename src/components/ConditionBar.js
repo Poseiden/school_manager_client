@@ -12,10 +12,18 @@ class ConditionBar extends React.Component {
     };
 
     this.query = this.query.bind(this);
+    this.validate = this.validate.bind(this);
   }
 
-  query() {
+  validate() {
 
+  }
+  query() {
+    if(this.validate()){
+      return [];
+    }else{
+      window.alert('information is invalid. ');
+    }
   }
 
   render() {

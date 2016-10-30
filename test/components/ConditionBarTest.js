@@ -110,4 +110,44 @@ describe('ConditionBarComponent', () => {
       ConditionBar.prototype.query.restore();
     })
   });
+
+  describe('query', () => {
+    it('should call validate when called query. ', () => {
+      sinon.spy(ConditionBar.prototype, 'validate');
+
+      ConditionBarComponent = mount(<ConditionBar />);
+
+      ConditionBarComponent.find('.query-button').prop('onClick')();
+
+      assert.equal(ConditionBar.prototype.validate.calledOnce, true);
+
+      ConditionBar.prototype.validate.restore();
+    });
+
+    it('should return students array when validate return true. ', () => {
+      sinon.stub(ConditionBar.prototype, 'validate').returns(true);
+
+      ConditionBarComponent = mount(<ConditionBar />);
+
+      assert(Array.isArray(ConditionBarComponent.find('.query-button').prop('onClick')()));
+
+      ConditionBar.prototype.validate.restore();   
+    })
+
+    it('should alert \'information is invalid \' when validate return false. ', () => {
+      sinon.stub(ConditionBar.prototype, 'validate').returns(false);
+
+      ConditionBarComponent = mount(<ConditionBar />);
+
+      sinon.spy(window, 'alert');
+
+      ConditionBarComponent.find('.query-button').prop('onClick')();
+
+      assert.equal(window.alert.calledWith('information is invalid. '), true);
+
+      ConditionBar.prototype.validate.restore();
+      window.alert.restore();
+    })
+  })
+
 });
