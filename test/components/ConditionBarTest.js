@@ -4,7 +4,7 @@
 'use strict';
 
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount,shallow } from 'enzyme';
 import ConditionBar from 'components/ConditionBar';
 import sinon from 'sinon';
 
@@ -148,6 +148,16 @@ describe('ConditionBarComponent', () => {
       ConditionBar.prototype.validate.restore();
       window.alert.restore();
     })
-  })
+  });
+  describe('validate', () => {
+    it.only('should return false when name state is not number. ', () => {
+      ConditionBarComponent.setState({
+        name: 'abc'
+      })
 
+      ConditionBarComponent  = shallow(<ConditionBar />);
+
+      assert.equal(ConditionBarComponent.instance().validate(), false);
+    })
+  })
 });

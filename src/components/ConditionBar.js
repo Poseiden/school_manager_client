@@ -16,7 +16,7 @@ class ConditionBar extends React.Component {
   }
 
   validate() {
-
+    return false;
   }
   query() {
     if(this.validate()){
