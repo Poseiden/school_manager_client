@@ -16,7 +16,7 @@ class ConditionBar extends React.Component {
   }
 
   validate() {
-    const numberReg = /^[0-9]*$/;
+    const numberReg = /^[0-9]{2}$/;
     if(numberReg.test(this.state.minAge)){
       return true;
     }

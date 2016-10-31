@@ -173,6 +173,14 @@ describe('ConditionBarComponent', () => {
       });
 
       assert.equal(ConditionBarComponent.instance().validate(), false);
+    });
+    it('should return false when minAge is three digit number. ', () => {
+      ConditionBarComponent = shallow(<ConditionBar />);
+      ConditionBarComponent.setState({
+        minAge: '100'
+      });
+
+      assert.equal(ConditionBarComponent.instance().validate(), false);
     })
   })
 });
