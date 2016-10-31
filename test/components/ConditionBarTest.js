@@ -158,6 +158,15 @@ describe('ConditionBarComponent', () => {
       ConditionBarComponent  = shallow(<ConditionBar />);
 
       assert.equal(ConditionBarComponent.instance().validate(), false);
+    });
+    it('should return false when name state includes letters. ', () => {
+      ConditionBarComponent.setState({
+        name: 'abc'
+      })
+
+      ConditionBarComponent = shallow(<ConditionBar />);
+
+      assert.equal(ConditionBarComponent.instance().validate(), false);
     })
   })
 });
