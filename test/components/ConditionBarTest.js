@@ -150,9 +150,9 @@ describe('ConditionBarComponent', () => {
     })
   });
   describe('validate', () => {
-    it.only('should return false when name state is not number. ', () => {
+    it('should return false when name state includes numbers.', () => {
       ConditionBarComponent.setState({
-        name: 'abc'
+        name: '123'
       })
 
       ConditionBarComponent  = shallow(<ConditionBar />);
