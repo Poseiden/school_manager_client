@@ -182,7 +182,7 @@ describe('ConditionBarComponent', () => {
 
       assert.equal(ConditionBarComponent.instance().validate(), false);
     });
-    it.only('should return false when minAge is not integer. ', () => {
+    it('should return false when minAge is not integer. ', () => {
       ConditionBarComponent = shallow(<ConditionBar />);
       ConditionBarComponent.setState({
         minAge: '1.5'
