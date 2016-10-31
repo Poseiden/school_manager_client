@@ -150,21 +150,27 @@ describe('ConditionBarComponent', () => {
     })
   });
   describe('validate', () => {
-    it('should return false when name state includes numbers.', () => {
+    it('should return false when minAge includes letter. ', () => {
+      ConditionBarComponent = shallow(<ConditionBar />);
       ConditionBarComponent.setState({
-        name: '123'
-      })
-
-      ConditionBarComponent  = shallow(<ConditionBar />);
+        minAge: 'abc'
+      });
 
       assert.equal(ConditionBarComponent.instance().validate(), false);
     });
-    it('should return false when name state includes letters. ', () => {
-      ConditionBarComponent.setState({
-        name: 'abc'
-      })
-
+    it('should return true when minAge only includes number. ', () => {
       ConditionBarComponent = shallow(<ConditionBar />);
+      ConditionBarComponent.setState({
+        minAge: '12'
+      });
+
+      assert.equal(ConditionBarComponent.instance().validate(), true);
+    });
+    it('should return false when minAge is negative number. ', () => {
+      ConditionBarComponent = shallow(<ConditionBar />);
+      ConditionBarComponent.setState({
+        minAge: '-12'
+      });
 
       assert.equal(ConditionBarComponent.instance().validate(), false);
     })
