@@ -197,6 +197,14 @@ describe('ConditionBarComponent', () => {
       });
 
       assert.equal(ConditionBarComponent.instance().validate(), false);
+    });
+    it('should return false when maxAge includes negative numbers. ', () => {
+      ConditionBarComponent = shallow(<ConditionBar />);
+      ConditionBarComponent.setState({
+        maxAge: '-12'
+      });
+
+      assert.equal(ConditionBarComponent.instance().validate(), false);
     })
   })
 });
