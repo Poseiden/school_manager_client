@@ -198,6 +198,13 @@ describe('ConditionBarComponent', () => {
       });
 
       assert.equal(ConditionBarComponent.instance().validate(), false);
-    })
+    });
+    it.only('should return false when maxAge is not integer. ', () => {
+      ConditionBarComponent.setState({
+        maxAge: '1.5'
+      });
+
+      assert.equal(ConditionBarComponent.instance().validate(), false);
+    });
   })
 });
