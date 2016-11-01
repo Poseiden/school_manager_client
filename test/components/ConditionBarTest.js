@@ -151,7 +151,6 @@ describe('ConditionBarComponent', () => {
   });
   describe('validate', () => {
     it('should return false when minAge includes letter. ', () => {
-      ConditionBarComponent = shallow(<ConditionBar />);
       ConditionBarComponent.setState({
         minAge: 'abc'
       });
@@ -159,7 +158,6 @@ describe('ConditionBarComponent', () => {
       assert.equal(ConditionBarComponent.instance().validate(), false);
     });
     it('should return true when minAge only includes number. ', () => {
-      ConditionBarComponent = shallow(<ConditionBar />);
       ConditionBarComponent.setState({
         minAge: '12'
       });
@@ -167,7 +165,6 @@ describe('ConditionBarComponent', () => {
       assert.equal(ConditionBarComponent.instance().validate(), true);
     });
     it('should return false when minAge is negative number. ', () => {
-      ConditionBarComponent = shallow(<ConditionBar />);
       ConditionBarComponent.setState({
         minAge: '-12'
       });
@@ -175,7 +172,6 @@ describe('ConditionBarComponent', () => {
       assert.equal(ConditionBarComponent.instance().validate(), false);
     });
     it('should return false when minAge is three digit number. ', () => {
-      ConditionBarComponent = shallow(<ConditionBar />);
       ConditionBarComponent.setState({
         minAge: '100'
       });
@@ -183,7 +179,6 @@ describe('ConditionBarComponent', () => {
       assert.equal(ConditionBarComponent.instance().validate(), false);
     });
     it('should return false when minAge is not integer. ', () => {
-      ConditionBarComponent = shallow(<ConditionBar />);
       ConditionBarComponent.setState({
         minAge: '1.5'
       });
@@ -191,7 +186,6 @@ describe('ConditionBarComponent', () => {
       assert.equal(ConditionBarComponent.instance().validate(), false);
     });
     it('should return false when maxAge includes leters. ', () => {
-      ConditionBarComponent = shallow(<ConditionBar />);
       ConditionBarComponent.setState({
         maxAge: 'abc'
       });
@@ -199,7 +193,6 @@ describe('ConditionBarComponent', () => {
       assert.equal(ConditionBarComponent.instance().validate(), false);
     });
     it('should return false when maxAge includes negative numbers. ', () => {
-      ConditionBarComponent = shallow(<ConditionBar />);
       ConditionBarComponent.setState({
         maxAge: '-12'
       });
