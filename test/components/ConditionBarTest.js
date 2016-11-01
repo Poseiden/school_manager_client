@@ -166,5 +166,15 @@ describe('ConditionBarComponent', () => {
 
       assert.equal(ConditionBarComponent.instance().validate(), true);
     });
+    it('should return true when maxAge is empty. ', () => {
+      assert.equal(ConditionBarComponent.instance().validate(), true);
+    });
+    it('should return false when maxAge is letters. ', () => {
+      ConditionBarComponent.setState({
+        maxAge: 'abc'
+      });
+
+      assert.equal(ConditionBarComponent.instance().validate(), false);
+    })
   })
 });
