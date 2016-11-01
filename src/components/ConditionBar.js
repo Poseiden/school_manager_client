@@ -17,10 +17,10 @@ class ConditionBar extends React.Component {
 
   validate() {
     const numberReg = /^[0-9]{2}$/;
-    if(numberReg.test(this.state.minAge)){
+    if(this.state.minAge === '' || numberReg.test(this.state.minAge) && numberReg.test(this.state.maxAge)){
       return true;
     }
-    return false;
+    return true;
   }
 
   query() {

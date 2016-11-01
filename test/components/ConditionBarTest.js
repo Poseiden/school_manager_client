@@ -150,61 +150,8 @@ describe('ConditionBarComponent', () => {
     })
   });
   describe('validate', () => {
-    it('should return false when minAge includes letter. ', () => {
-      ConditionBarComponent.setState({
-        minAge: 'abc'
-      });
-
-      assert.equal(ConditionBarComponent.instance().validate(), false);
-    });
-    it('should return true when minAge only includes number. ', () => {
-      ConditionBarComponent.setState({
-        minAge: '12'
-      });
-
+    it('should return true when minAge is empty. ', () => {
       assert.equal(ConditionBarComponent.instance().validate(), true);
-    });
-    it('should return false when minAge is negative number. ', () => {
-      ConditionBarComponent.setState({
-        minAge: '-12'
-      });
-
-      assert.equal(ConditionBarComponent.instance().validate(), false);
-    });
-    it('should return false when minAge is three digit number. ', () => {
-      ConditionBarComponent.setState({
-        minAge: '100'
-      });
-
-      assert.equal(ConditionBarComponent.instance().validate(), false);
-    });
-    it('should return false when minAge is not integer. ', () => {
-      ConditionBarComponent.setState({
-        minAge: '1.5'
-      });
-
-      assert.equal(ConditionBarComponent.instance().validate(), false);
-    });
-    it('should return false when maxAge includes leters. ', () => {
-      ConditionBarComponent.setState({
-        maxAge: 'abc'
-      });
-
-      assert.equal(ConditionBarComponent.instance().validate(), false);
-    });
-    it('should return false when maxAge includes negative numbers. ', () => {
-      ConditionBarComponent.setState({
-        maxAge: '-12'
-      });
-
-      assert.equal(ConditionBarComponent.instance().validate(), false);
-    });
-    it.only('should return false when maxAge is not integer. ', () => {
-      ConditionBarComponent.setState({
-        maxAge: '1.5'
-      });
-
-      assert.equal(ConditionBarComponent.instance().validate(), false);
-    });
+    })
   })
 });
