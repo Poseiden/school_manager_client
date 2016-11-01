@@ -189,6 +189,14 @@ describe('ConditionBarComponent', () => {
       });
 
       assert.equal(ConditionBarComponent.instance().validate(), false);
+    });
+    it('should return false when maxAge includes leters. ', () => {
+      ConditionBarComponent = shallow(<ConditionBar />);
+      ConditionBarComponent.setState({
+        maxAge: 'abc'
+      });
+
+      assert.equal(ConditionBarComponent.instance().validate(), false);
     })
   })
 });
