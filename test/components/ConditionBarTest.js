@@ -152,6 +152,19 @@ describe('ConditionBarComponent', () => {
   describe('validate', () => {
     it('should return true when minAge is empty. ', () => {
       assert.equal(ConditionBarComponent.instance().validate(), true);
-    })
+    });
+    it('should return false when minAge is letters. ', () => {
+      ConditionBarComponent.setState({
+        minAge: 'abc'
+      })
+      assert.equal(ConditionBarComponent.instance().validate(), false);
+    });
+    it('should return true when minAge is numbers. ', () => {
+      ConditionBarComponent.setState({
+        minAge: '12'
+      });
+
+      assert.equal(ConditionBarComponent.instance().validate(), true);
+    });
   })
 });

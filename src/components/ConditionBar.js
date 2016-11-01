@@ -20,7 +20,7 @@ class ConditionBar extends React.Component {
     if(this.state.minAge === '' || numberReg.test(this.state.minAge) ){
       return true;
     }
-    return true;
+    return false;
   }
 
   query() {
