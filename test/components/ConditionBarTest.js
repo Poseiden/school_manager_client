@@ -161,7 +161,7 @@ describe('ConditionBarComponent', () => {
     });
     it('should return true when minAge is numbers. ', () => {
       ConditionBarComponent.setState({
-        minAge: '12'
+        minAge: 12
       });
 
       assert.equal(ConditionBarComponent.instance().validate(), true);
@@ -172,6 +172,14 @@ describe('ConditionBarComponent', () => {
     it('should return false when maxAge is letters. ', () => {
       ConditionBarComponent.setState({
         maxAge: 'abc'
+      });
+
+      assert.equal(ConditionBarComponent.instance().validate(), false);
+    });
+    it('should return false when minAge is less than maxAge. ', () => {
+      ConditionBarComponent.setState({
+        maxAge: 9,
+        minAge: 10
       });
 
       assert.equal(ConditionBarComponent.instance().validate(), false);
