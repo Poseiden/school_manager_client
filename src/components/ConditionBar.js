@@ -19,9 +19,9 @@ class ConditionBar extends React.Component {
     const numberReg = /^[0-9]{0,2}$/;
     if(numberReg.test(this.state.minAge) ){
       if(numberReg.test(this.state.maxAge)){
-        if(this.state.minAge !== '' && this.state.maxAge !== '' && this.state.maxAge > this.state.minAge ){
+        if(this.state.minAge !== '' && this.state.maxAge !== '' && parseInt(this.state.maxAge) > parseInt(this.state.minAge) ){
           return true;
-        }else if(this.state.minAge !== '' && this.state.maxAge !== '' && this.state.maxAge < this.state.minAge){
+        }else if(this.state.minAge !== '' && this.state.maxAge !== '' && parseInt(this.state.maxAge) < parseInt(this.state.minAge)){
           return false;
         }else {
           return true;
